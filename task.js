@@ -4,7 +4,7 @@ class AlarmClock{
         this.timerId = null
     }
 
-    addClock(time, fn, id) {
+    addClock(time, callback, id) {
         if (!id) {
             throw new Error('Не передан id будильника');
         }
@@ -12,7 +12,7 @@ class AlarmClock{
             console.error('Будильник с таким id уже существует');
             return;
         }
-        this.alarmCollection.push({ id, time, fn });
+        this.alarmCollection.push({ id, time, callback });
     }
 
     removeClock(id) {
